@@ -4,8 +4,8 @@ import TYPES from "./types";
 import RecipeService from "../../services/implementation/recipes/recipe.service";
 import "reflect-metadata";
 
-const container = new Container();
+const diContainer = new Container();
 
-container.bind<IRecipeService>(TYPES.Recipe).to(RecipeService);
+diContainer.bind<IRecipeService>(TYPES.Recipe).to(RecipeService);
 
-export default container;
+export default diContainer;

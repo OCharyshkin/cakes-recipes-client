@@ -2,8 +2,9 @@ import React, {Component} from "react";
 import RecipesList from "./RecipesList.component";
 import {IRecipe} from "../../models/recipes/Recipe";
 import {IRecipeService} from "../../services/recipes/recipe.service.interface";
-import {inject} from "inversify";
+import { resolve } from "inversify-react";
 import TYPES from "../../core/ioc/types";
+import "reflect-metadata";
 
 type MyRecipesState = {
     recipes: IRecipe[]
@@ -12,7 +13,7 @@ type MyRecipesState = {
 class MyRecipes extends Component<any, MyRecipesState> {
 
     // @ts-ignore
-    @inject(TYPES.Recipe) private recipeService: IRecipeService;
+    @resolve(TYPES.Recipe) private recipeService: IRecipeService;
 
     componentWillMount(): void {
 
